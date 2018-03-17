@@ -30,5 +30,5 @@ def results(request):
     return render(request, 'app/results.html', {'score':score, 'questions':questions})
 
 def other_results(request):
-    results = UserScore.objects.all()
+    results = UserScore.objects.all().order_by('-id')
     return render(request, 'app/form.html', {'results': results})
