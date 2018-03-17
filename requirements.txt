@@ -5,8 +5,10 @@ django-fluent-contents==2.0.2
 django-fluent-utils==2.0
 django-parler==1.9.2
 django-polymorphic==2.0.2
+django-tables2==1.21.1
 django-tag-parser==3.1
 django-template-analyzer==1.6.1
+django-widget-tweaks==1.4.1
 fluentcms-countdown==1.2
 future==0.16.0
 html5lib==1.0.1
