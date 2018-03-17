@@ -1,0 +1,29 @@
+{% extends 'app/home.html' %}
+{%load staticfiles%}
+{% block content %}
+<h1>Online Quiz</h1>
+<h2>10 Marks for Each Question</h2>
+    <h4>Hi  <bold>{{user}}</bold>  , Welcome to Online Quiz </h4>
+    <h5> Time Remaining</h5>
+    <p id="timer"></p>
+     <div class = 'questions'>
+
+     <form action= 'results/' method = "POST" >
+        {% for question in questions %}
+
+	<div class = 'question'>Q{{question.number}}. {{ question.Question }}</div><br>
+        <ul id= "choices" class='select'>
+        <input type = "radio" name="{{question.number}}" value="{{question.Choice1}}">{{question.Choice1}}<br>
+        <input type = "radio" name="{{question.number}}" value="{{question.Choice2}}">{{question.Choice2}}<br>
+        <input type = "radio" name="{{question.number}}" value="{{question.Choice3}}">{{question.Choice3}}<br>
+        <input type = "radio" name="{{question.number}}" value="{{question.Choice4}}">{{question.Choice4}}<br>
+        </ul>
+        <br>
+
+        {% endfor %}
+        <input type="hidden" id="user" name="newuser" value={{newuser}}>
+       <input type="submit" class="submit" id="submit" value="Submit"/>
+    {% csrf_token %}
+      </div>
+ </form>
+{% endblock content %}

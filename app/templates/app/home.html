@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/p5.js' %}"></script>
+<script src="{% static 'js/p5.dom.js' %}"></script>
+<script src="{% static 'js/p5.dom.js' %}"></script>
+<html>
+    <head>
+        <title>Online Quiz</title>
+    </head>
+    <body>
+ 	<link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <a id="logout" href="{% url 'logout' %}">Logout</a>
+      {%block content%}
+      {% endblock content %}
+  <p class="bottom">Arjun P P , Mob :+918281608653 </p>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'app/home.html' %}
+{%load staticfiles%}
+{% block content %}
+<a id ="result" href="{% url 'other_results' %}">View Other's Results</a>
+<p style="text-align:center">
+<a href="{% url 'home' %}">Try Again</a>
+</p>
+<h1> Results </h1>
+{% if score == 0  %}
+	<h3>Sorry {{user}}, Your score is {{score}}</h3>
+{% else %}
+    <h3>Congratulations {{user}}, Your score is {{score}}</h3>
+{%endif%}
+{% for question in questions %}
+<div class = 'question'>Q{{question.number}}. {{ question.Question }}</div><br>
+<ul id= "choices" class='select'>
+{% if question.correct_ans == question.Choice1 %}
+{% if question.entered_answer == question.Choice1 %}
+<input id ="ans" type = "text" name="{{question.number}}" value="{{question.Choice1}}"><br>
+{% else %}
+<input id ="wrong" type = "text" name="{{question.number}}" value="{{question.Choice1}}"><br>
+{% endif %}
+{% else %}
+<input type = "text" name="{{question.number}}" value="{{question.Choice1}}"><br>
+{% endif %}
+{% if question.correct_ans == question.Choice2 %}
+{% if question.entered_answer == question.Choice2 %}
+<input id ="ans" type = "text" name="{{question.number}}" value="{{question.Choice2}}"><br>
+{% else %}
+<input id ="wrong" type = "text" name="{{question.number}}" value="{{question.Choice2}}"><br>
+{% endif %}
+{% else %}
+<input type = "text" name="{{question.number}}" value="{{question.Choice2}}"><br>
+{% endif %}
+{% if question.correct_ans == question.Choice3 %}
+{% if question.entered_answer == question.Choice3 %}
+<input id ="ans" type = "text" name="{{question.number}}" value="{{question.Choice3}}"><br>
+{% else %}
+<input id ="wrong" type = "text" name="{{question.number}}" value="{{question.Choice3}}"><br>
+{% endif %}
+{% else %}
+<input type = "text" name="{{question.number}}" value="{{question.Choice3}}"><br>
+{% endif %}
+{% if question.correct_ans == question.Choice4 %}
+{% if question.entered_answer == question.Choice4 %}
+<input id ="ans" type = "text" name="{{question.number}}" value="{{question.Choice4}}"><br>
+{% else %}
+<input id ="wrong" type = "text" name="{{question.number}}" value="{{question.Choice4}}"><br>
+{% endif %}
+{% else %}
+<input type = "text" name="{{question.number}}" value="{{question.Choice4}}"><br>
+{% endif %}
+{% if question.correct_ans != question.entered_answer %}
+<p id="ans">Answer : {{question.correct_ans}}
+{% endif %}
+</ul>
+<br>
+</div
+{% endfor %}
+
+
+
+{% endblock content %}

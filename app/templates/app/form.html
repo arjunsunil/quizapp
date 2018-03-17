@@ -1,0 +1,22 @@
+{% extends 'app/home.html' %}
+{%load staticfiles%}
+{% block content %}
+<body>
+    <a id="home" href="{% url 'home' %}">Home Page</a>
+    <h3> Other's Results</h3>
+      <table id="results">
+    <tr id="header">
+      <th>User</th>
+      <th>Score</th>
+      <th>Date</th>
+    </tr>
+    {% for result in results %}
+    <tr id="footer">
+      <th> {{ result.username }}</th>
+      <th> {{ result.score }}</th>
+      <th> {{ result.date }}</th>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+{% endblock content %}
